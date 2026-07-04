@@ -64,11 +64,15 @@ int display(CircularQueue* queue) {
         printf("Queue is empty\n");
         return -1;
     }
+    else{
     printf("Queue elements: ");
-    for (int i = queue->front; i != queue->rear; i = (i + 1) % SIZE) {
+    int i = queue->front;
+    while(i != queue->rear) {
         printf("%d ", queue->items[i]);
+        i = (i + 1) % SIZE;
     }
-    printf("\n");
+    printf("%d\n", queue->items[queue->rear]);
+    }
     return 0;
 }
 int deleteQueue(CircularQueue* queue) {
